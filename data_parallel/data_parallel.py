@@ -26,7 +26,7 @@ def train(model, train_loader , optimizer , epoch, rank , do_data_parallel=False
         
         _,preds = torch.max(outputs,1)
         
-        # A mean of loss is required to be computed as calculated by each device
+        # A mean of loss is required to be computed as calculated by each device s
         
         if do_data_parallel and torch.cude.device_count() > 1 :
             loss = criterion(outputs,labels).mean()
